@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SESS=$(basename ${0})
+if [ ! -n "${SESS}" ]
+then
+	exit
+fi
+
+tmux list-sessions | grep "${SESS}" 2>&1 >/dev/null
+ret=$?
+if [ "${ret}" = 0 ]
+then
+	exec tmux attach -t "${SESS}"
+else
+	exec tmux new -s "${SESS}"
+fi
