@@ -112,11 +112,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="${PATH}:${HOME}/.cargo/bin:${HOME}/bin"
-source "$HOME/.cargo/env"
-
 alias ssh='TERM=xterm ssh'
+
 export EDITOR=vim
 export PAGER=less
-HISTSIZE=-1 
-HISTFILESIZE=-1
+export HISTSIZE=-1 
+export HISTFILESIZE=-1
+export PATH=${HOME}/bin:${PATH}
